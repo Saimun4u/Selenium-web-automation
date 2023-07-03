@@ -17,3 +17,7 @@ driver.get(youtubeURL)
 subCount = driver.find_element(By.XPATH, '//*[@id="subscriber-count"]')
 
 print(subCount.text)
+
+# Close the browser after fetching the data
+
+driver.quit()

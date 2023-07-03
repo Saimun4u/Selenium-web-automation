@@ -10,6 +10,10 @@ youtubeURL = "https://www.youtube.com/@freecodecamp"
 driver = webdriver.Chrome(executable_path = path)
 driver.get(youtubeURL)
 
-subCount = driver.find_element(By.ID, "subscriber-count")
+# Search by ID
+# subCount = driver.find_element(By.ID, "subscriber-count")
+
+# Search by Xpath
+subCount = driver.find_element(By.XPATH, '//*[@id="subscriber-count"]')
 
 print(subCount.text)

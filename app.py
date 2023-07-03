@@ -1,14 +1,15 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
+
 
 # ******* GETTING DATA FROM A WEBSITE *******
 
 path = "C:\\Users\Saimun\\Desktop\\chromedriver.exe"
-# googleURL = "https://www.google.com"
 youtubeURL = "https://www.youtube.com/@freecodecamp"
 instaURL = "https://www.instagram.com/"
-username = "saimunhas"
-password = "Saimun_1983"
+username = ""
+password = ""
 
 
 # Execute the driver and open the path
@@ -16,6 +17,8 @@ password = "Saimun_1983"
 driver = webdriver.Chrome(executable_path = path)
 # driver.get(youtubeURL)
 driver.get(instaURL)
+
+time.sleep(3)
 
 # Search by ID
 # subCount = driver.find_element(By.ID, "subscriber-count")
@@ -31,11 +34,14 @@ driver.get(instaURL)
 
 # ******* FORM SUBMISSION AND AUTOMATION *******
 
-
 usernameEntry = driver.find_element(BY.XPATH, '//*[@id="loginForm"]/div/div[1]/div/label/input')
-passwordEntry = driver.find_element(BY.XPATH, '//*[@id="loginForm"]/div/div[2]/div/label/input')
 usernameEntry.send_keys(username)
+
+passwordEntry = driver.find_element(BY.XPATH, '//*[@id="loginForm"]/div/div[2]/div/label/input')
 passwordEntry.send_keys(password)
 
+# Select XPATH after entering login credentials
 
-driver.quit()
+loginButton = driver.find_element(BY.XPATH, '//*[@id="loginForm"]/div/div[3]/button').click()
+
+
